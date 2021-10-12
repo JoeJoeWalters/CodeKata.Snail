@@ -6,32 +6,24 @@ namespace Tests
 {
     public class Tests
     {
+        private readonly int[] test1 = { 1, 2, 3, 4 };
+        private readonly int[][] testResult1 =
+        {
+            new []{ 1, 2 },
+            new []{ 4, 3 },
+        };
+
         [Fact]
-        public void Something_Does_Something_With_Thing_Expecting_SomethingElse()
+        public void If_Given_Array_Produces_Snail_Array()
         {
             // ARRANGE
-            var thing = new Thing();
+            var sort = new SnailSort();
 
             // ACT
+            int[][] result = sort.Go();
 
             // ASSERT
-            thing.Should().NotBeNull();
-        }
-
-        [Theory]
-        [InlineData("Scenario 1")]
-        [InlineData("Scenario 2")]
-        [InlineData("Scenario 3")]
-        [InlineData("Scenario 4")]
-        public void Something_Does_SomethingSpecific_With_Thing_Expecting_SomethingElse(string scenario)
-        {
-            // ARRANGE
-            var thing = new Thing();
-
-            // ACT
-
-            // ASSERT
-            thing.Should().NotBe(scenario);
+            result.Should().Equal(testResult1);
         }
     }
 }
